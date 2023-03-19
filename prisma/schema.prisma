@@ -1,0 +1,143 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model area {
+  id        Int       @id @default(autoincrement())
+  cityname  String    @db.VarChar(200)
+  stateId   Int
+  updatedAt DateTime  @default(now())
+  state     state     @relation(fields: [stateId], references: [id])
+  product   product[]
+}
+
+model category {
+  id          Int           @id @default(autoincrement())
+  catname     String        @default("") @db.VarChar(200)
+  updatedAt   DateTime      @default(now())
+  product     product[]
+  subcategory subcategory[]
+}
+
+model item {
+  id            Int         @id @default(autoincrement())
+  itemname      String      @default("") @db.VarChar(200)
+  subcategoryId Int
+  updatedAt     DateTime    @default(now())
+  subcategory   subcategory @relation(fields: [subcategoryId], references: [id])
+}
+
+model post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+}
+
+model product {
+  id              Int             @id @default(autoincrement())
+  price           Decimal         @db.Decimal(30, 4)
+  name            String          @db.VarChar(200)
+  imageUrl        String          @db.VarChar(200)
+  imageUrl2       String          @db.VarChar(200)
+  imageUrl3       String          @db.VarChar(200)
+  description     String          @db.VarChar(500)
+  productstatusId Int
+  categoryId      Int
+  subcategoryid   Int
+  stateId         Int
+  areaId          Int
+  userId          Int
+  updatedAt       DateTime        @default(now())
+  area            area            @relation(fields: [areaId], references: [id])
+  category        category        @relation(fields: [categoryId], references: [id])
+  productstatus   productstatus   @relation(fields: [productstatusId], references: [id])
+  state           state           @relation(fields: [stateId], references: [id])
+  subcategory     subcategory     @relation(fields: [subcategoryid], references: [id])
+  users           users           @relation(fields: [userId], references: [id])
+  productdetail   productdetail[]
+  productviewed   productviewed[]
+}
+
+model productdetail {
+  id          Int      @id @default(autoincrement())
+  ImageUrl    String   @db.VarChar(200)
+  ImageUrl2   String   @db.VarChar(200)
+  ImageUrl3   String   @db.VarChar(200)
+  ImageUrl4   String?  @db.VarChar(200)
+  Description String   @db.VarChar(500)
+  productId   Int
+  updatedAt   DateTime @default(now())
+  product     product  @relation(fields: [productId], references: [id])
+}
+
+model productstatus {
+  id       Int       @id @default(autoincrement())
+  prodname String    @db.VarChar(200)
+  product  product[]
+}
+
+model productviewed {
+  id           Int      @id @default(autoincrement())
+  productcount Int
+  productId    Int
+  updatedAt    DateTime @default(now())
+  product      product  @relation(fields: [productId], references: [id])
+}
+
+model profile {
+  id          Int      @id @default(autoincrement())
+  firstname   String   @db.VarChar(100)
+  surname     String   @db.VarChar(100)
+  phonenumber String   @db.VarChar(100)
+  address     String   @db.VarChar(200)
+  userId      Int      @unique
+  updatedAt   DateTime @default(now())
+  users       users    @relation(fields: [userId], references: [id])
+}
+
+model state {
+  id        Int       @id @default(autoincrement())
+  statename String    @db.VarChar(200)
+  updatedAt DateTime  @default(now())
+  area      area[]
+  product   product[]
+}
+
+model subcategory {
+  id         Int       @id @default(autoincrement())
+  subname    String    @default("") @db.VarChar(200)
+  categoryId Int
+  updatedAt  DateTime  @default(now())
+  category   category  @relation(fields: [categoryId], references: [id])
+  item       item[]
+  product    product[]
+}
+
+model test {
+  id          Int     @id @default(autoincrement())
+  description String? @db.VarChar(255)
+}
+
+model transactiondata {
+  id               Int     @id @default(autoincrement())
+  series_reference String? @db.VarChar(50)
+  period           String? @db.VarChar(100)
+  units            String? @db.VarChar(255)
+  subject          String? @db.VarChar(255)
+}
+
+model users {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  usertype  String?
+  updatedAt DateTime  @default(now())
+  product   product[]
+  profile   profile?
+}
