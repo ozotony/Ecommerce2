@@ -286,7 +286,7 @@ export default function ProductDialog({
           <Modal.Body>
             <section className="advt-post bg-gray py-5">
               {isloading && (
-                <div class="spinner-border text-success" role="status">
+                <div className="spinner-border text-success" role="status">
                   <span>Loading...</span>
                 </div>
               )}
@@ -318,7 +318,7 @@ export default function ProductDialog({
                           type="number"
                         />
                         <ErrorMessage name="price" />
-                        <div class="row">
+                        <div className="row">
                           <h6 className="font-weight-bold pt-4 pb-1">
                             Status:
                           </h6>
@@ -330,15 +330,15 @@ export default function ProductDialog({
                             placeholder="status"
                           >
                             <option value="">Select category</option>
-                            {category.map((category) => (
-                              <option value={category.id}>
+                            {category.map((category, i) => (
+                              <option value={category.id} key={i}>
                                 {category.catname}
                               </option>
                             ))}
                           </Field>
                         </div>
                         <ErrorMessage name="status" />
-                        <div class="row">
+                        <div className="row">
                           <h6 className="font-weight-bold pt-4 pb-1">State:</h6>
 
                           <Field
@@ -348,8 +348,8 @@ export default function ProductDialog({
                             placeholder="status"
                           >
                             <option value="">Select category</option>
-                            {category.map((category) => (
-                              <option value={category.id}>
+                            {category.map((category, i) => (
+                              <option value={category.id} key={i}>
                                 {category.catname}
                               </option>
                             ))}
@@ -357,7 +357,7 @@ export default function ProductDialog({
                           <ErrorMessage name="state" />
                         </div>
 
-                        <div class="row">
+                        <div className="row">
                           <h6 className="font-weight-bold pt-4 pb-1">Area:</h6>
 
                           <Field
@@ -367,8 +367,8 @@ export default function ProductDialog({
                             placeholder="status"
                           >
                             <option value="">Select category</option>
-                            {category.map((category) => (
-                              <option value={category.id}>
+                            {category.map((category, i) => (
+                              <option value={category.id} key={i}>
                                 {category.catname}
                               </option>
                             ))}
@@ -388,7 +388,7 @@ export default function ProductDialog({
                         <ErrorMessage name="description" />
                       </div>
                       <div className="col-lg-6">
-                        <div class="row">
+                        <div className="row">
                           <h6 className="font-weight-bold pt-4 pb-1">
                             Select Ad Category:
                           </h6>
@@ -416,8 +416,8 @@ export default function ProductDialog({
                             }}
                           >
                             <option value="">Select category</option>
-                            {category.map((category) => (
-                              <option value={category.id}>
+                            {category.map((category, i) => (
+                              <option value={category.id} key={i}>
                                 {category.catname}
                               </option>
                             ))}
@@ -425,7 +425,7 @@ export default function ProductDialog({
                           <ErrorMessage name="category2" />
                         </div>
 
-                        <div class="row">
+                        <div className="row">
                           <h6 className="font-weight-bold pt-4 pb-1">
                             Select Sub Category:
                           </h6>
@@ -437,8 +437,8 @@ export default function ProductDialog({
                             placeholder="status"
                           >
                             <option value="">Select category</option>
-                            {subcategories.map((category) => (
-                              <option value={category.id}>
+                            {subcategories.map((category, i) => (
+                              <option value={category.id} key={i}>
                                 {category.subname}
                               </option>
                             ))}

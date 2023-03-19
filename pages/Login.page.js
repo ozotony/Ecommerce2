@@ -3,7 +3,6 @@ import Image from "next/image";
 import SideNav from "./Component/sidenav2";
 import { useState, useContext, useRef } from "react";
 
-
 import Router from "next/router";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
@@ -125,13 +124,10 @@ export default function Login() {
       console.log(kk);
 
       if (nextpage) {
-       router.push(`/${nextpage}`);
+        router.push(`/${nextpage}`);
+      } else {
+        router.push("/");
       }
-      else {
-      router.push("/");
-      }
-
-      
     } else {
       toast.current.show({
         severity: "error",
@@ -170,9 +166,7 @@ export default function Login() {
   });
   return (
     <>
-      <div >
-      
-
+      <div>
         <div className="container" style={{ backgroundColor: "white" }}>
           <div className="row flex-nowrap">
             <Formik
@@ -193,61 +187,82 @@ export default function Login() {
               {(props) => (
                 <div className="container" style={{ margin: 20 }}>
                   <section className="vh-100">
-             <section class="login py-5 border-top-1">
-  <div className="container">
-    <div className="row justify-content-center">
-      <div className="col-lg-5 col-md-8 align-item-center">
-        <div className="border">
-          <h3 className="bg-gray p-4">Login Now</h3>
-          <Form>
-            <fieldset className="p-4">
-              <Field type="email"
-                     name="email"
-                     placeholder="Enter a valid email address"
-                     className="form-control form-control-lg"
-                     autoComplete="off" />
+                    <section className="login py-5 border-top-1">
+                      <div className="container">
+                        <div className="row justify-content-center">
+                          <div className="col-lg-5 col-md-8 align-item-center">
+                            <div className="border">
+                              <h3 className="bg-gray p-4">Login Now</h3>
+                              <Form>
+                                <fieldset className="p-4">
+                                  <Field
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter a valid email address"
+                                    className="form-control form-control-lg"
+                                    autoComplete="off"
+                                  />
 
-              <label className="form-label">
-                Email address
-              </label>
+                                  <label className="form-label">
+                                    Email address
+                                  </label>
 
-              <ErrorMessage name="email">
-                {(msg) => (
-                <div style={{ color: "red" }}>{msg}</div>
-                )}
-              </ErrorMessage>
-              <Field type="password"
-                     name="password"
-                     placeholder="Enter password"
-                     className="form-control form-control-lg"
-                     autoComplete="off" />
+                                  <ErrorMessage name="email">
+                                    {(msg) => (
+                                      <div style={{ color: "red" }}>{msg}</div>
+                                    )}
+                                  </ErrorMessage>
+                                  <Field
+                                    type="password"
+                                    name="password"
+                                    placeholder="Enter password"
+                                    className="form-control form-control-lg"
+                                    autoComplete="off"
+                                  />
 
-              <label className="form-label">Password</label>
+                                  <label className="form-label">Password</label>
 
-              <ErrorMessage name="password">
-                {(msg) => (
-                <div style={{ color: "red" }}>{msg}</div>
-                )}
-              </ErrorMessage>
-              <div className="loggedin-forgot">
-                <input type="checkbox" id="keep-me-logged-in"/>
-                <label for="keep-me-logged-in" className="pt-3 pb-2">Keep me logged in</label>
-              </div>
-              <button type="submit" className="btn btn-primary font-weight-bold mt-3">Log in</button>
-              <a className="mt-3 d-block text-primary" href="#!">Forget Password?</a>
-              <Link href="/register">
-              <a className="link-danger">Register</a>
-              </Link>
-             
+                                  <ErrorMessage name="password">
+                                    {(msg) => (
+                                      <div style={{ color: "red" }}>{msg}</div>
+                                    )}
+                                  </ErrorMessage>
+                                  <div className="loggedin-forgot">
+                                    <input
+                                      type="checkbox"
+                                      id="keep-me-logged-in"
+                                    />
+                                    <label
+                                      htmlFor="keep-me-logged-in"
+                                      className="pt-3 pb-2"
+                                    >
+                                      Keep me logged in
+                                    </label>
+                                  </div>
+                                  <button
+                                    type="submit"
+                                    className="btn btn-primary font-weight-bold mt-3"
+                                  >
+                                    Log in
+                                  </button>
+                                  <a
+                                    className="mt-3 d-block text-primary"
+                                    href="#!"
+                                  >
+                                    Forget Password?
+                                  </a>
+                                  <Link href="/register">
+                                    <a className="link-danger">Register</a>
+                                  </Link>
 
-              {ShowSpinner && <ProgressSpinner />}
-            </fieldset>
-          </Form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                                  {ShowSpinner && <ProgressSpinner />}
+                                </fieldset>
+                              </Form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
                   </section>
                 </div>
               )}

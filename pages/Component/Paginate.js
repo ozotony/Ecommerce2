@@ -89,8 +89,12 @@ export default function Paginate({
   };
 
   const getPages = () => {
-    return selectedTotalPage.map((page) => {
-      return <option value={page}>{page} </option>;
+    return selectedTotalPage.map((page, i) => {
+      return (
+        <option value={page} key={i}>
+          {page}{" "}
+        </option>
+      );
     });
   };
   const handleChange2 = () => {
@@ -143,14 +147,14 @@ export default function Paginate({
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
-            <a class="page-link" onClick={() => handleChange3()} href="#">
+            <a className="page-link" onClick={() => handleChange3()} href="#">
               Prev
             </a>
           </li>
-          {pages.map((page) => (
+          {pages.map((page, i) => (
             <li
-              key={page}
-              class={page === currentPage ? "page-item active" : "pageItem"}
+              key={i}
+              className={page === currentPage ? "page-item active" : "pageItem"}
             >
               <a
                 className="page-link"
@@ -162,8 +166,8 @@ export default function Paginate({
             </li>
           ))}
 
-          <li class="page-item">
-            <a class="page-link" onClick={() => handleChange2()} href="#">
+          <li className="page-item">
+            <a className="page-link" onClick={() => handleChange2()} href="#">
               Next
             </a>
           </li>

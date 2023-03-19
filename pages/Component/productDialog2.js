@@ -148,7 +148,7 @@ export default function ProductDialog({
         <Modal.Body>
           <section className="advt-post bg-gray py-5">
             {isloading && (
-              <div class="spinner-border text-success" role="status">
+              <div className="spinner-border text-success" role="status">
                 <span>Loading...</span>
               </div>
             )}
@@ -179,7 +179,7 @@ export default function ProductDialog({
                         type="number"
                       />
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">Status:</h6>
 
                         <select
@@ -189,15 +189,15 @@ export default function ProductDialog({
                           placeholder="status"
                         >
                           <option value="">Select category</option>
-                          {category.map((category) => (
-                            <option value={category.id}>
+                          {category.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.catname}
                             </option>
                           ))}
                         </select>
                       </div>
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">State:</h6>
 
                         <select
@@ -207,15 +207,15 @@ export default function ProductDialog({
                           placeholder="status"
                         >
                           <option value="">Select category</option>
-                          {category.map((category) => (
-                            <option value={category.id}>
+                          {category.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.catname}
                             </option>
                           ))}
                         </select>
                       </div>
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">Area:</h6>
 
                         <select
@@ -225,8 +225,8 @@ export default function ProductDialog({
                           placeholder="status"
                         >
                           <option value="">Select category</option>
-                          {category.map((category) => (
-                            <option value={category.id}>
+                          {category.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.catname}
                             </option>
                           ))}
@@ -239,13 +239,13 @@ export default function ProductDialog({
 
                       <textarea
                         name="description"
-                        class="form-control bg-white"
+                        className="form-control bg-white"
                         rows="7"
                         placeholder="Write details about your product"
                       ></textarea>
                     </div>
                     <div className="col-lg-6">
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">
                           Select Ad Category2:
                         </h6>
@@ -272,15 +272,15 @@ export default function ProductDialog({
                           }}
                         >
                           <option value="">Select category</option>
-                          {category.map((category) => (
-                            <option value={category.id}>
+                          {category.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.catname}
                             </option>
                           ))}
                         </select>
                       </div>
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">
                           Select Sub Category:
                         </h6>
@@ -292,8 +292,8 @@ export default function ProductDialog({
                           placeholder="status"
                         >
                           <option value="">Select category</option>
-                          {subcategories.map((category) => (
-                            <option value={category.id}>
+                          {subcategories.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.subname}
                             </option>
                           ))}
@@ -306,7 +306,7 @@ export default function ProductDialog({
 
                       <input
                         type="file"
-                        class="form-control-file d-none"
+                        className="form-control-file d-none"
                         id="file-upload"
                         name="file"
                       />
@@ -317,7 +317,7 @@ export default function ProductDialog({
 
                       <input
                         type="file2"
-                        class="form-control-file d-none"
+                        className="form-control-file d-none"
                         id="file-upload"
                         name="file"
                       />
@@ -327,7 +327,7 @@ export default function ProductDialog({
                       </h6>
                       <input
                         type="file3"
-                        class="form-control-file d-none"
+                        className="form-control-file d-none"
                         id="file-upload"
                         name="file"
                       />

@@ -137,7 +137,7 @@ export default function GetUserProduct({ page }) {
                       View Details <i className="fa fa-eye"></i>
                     </a>
                   </li>
-                  <li class="list-inline-item">
+                  <li className="list-inline-item">
                     <a
                       data-toggle="tooltip"
                       data-placement="top"
@@ -148,7 +148,7 @@ export default function GetUserProduct({ page }) {
                       Edit Details <i className="fa fa-pencil"></i>
                     </a>
                   </li>
-                  <li class="list-inline-item">
+                  <li className="list-inline-item">
                     <a
                       data-toggle="tooltip"
                       data-placement="top"

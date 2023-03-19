@@ -411,8 +411,8 @@ export default function Home() {
                       <h4>Electronics</h4>
                     </div>
                     <ul className="category-list">
-                      {Electronicproducts.map((page) => (
-                        <li>
+                      {Electronicproducts.map((page, i) => (
+                        <li key={i}>
                           <Link
                             href={`/detail3/${page.subcategoryid} ?subcategory=${page.subname}`}
                             className="nav-link"

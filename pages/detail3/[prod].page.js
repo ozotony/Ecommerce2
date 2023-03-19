@@ -81,8 +81,8 @@ export default function DetailProduct() {
         url3={url3}
       />
       {isloading && (
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
         </div>
       )}
       <section className="section-sm">
@@ -90,7 +90,7 @@ export default function DetailProduct() {
           <div className="row">
             <div className="col-md-12">
               <div className="search-result bg-gray">
-                <h2>Results For "{pquery.subcategory}"</h2>
+                <h2>Results For {pquery.subcategory}</h2>
                 <p>123 Results on 12 December, 2017</p>
               </div>
             </div>
@@ -114,8 +114,8 @@ export default function DetailProduct() {
             </div>
 
             <div className="col-lg-9 col-md-8">
-              {prod3.map((page) => (
-                <div className="ad-listing-list mt-20">
+              {prod3.map((page, i) => (
+                <div className="ad-listing-list mt-20" key={i}>
                   <div className="row ">
                     <div className="col-lg-4 align-self-center">
                       <a href="single.html">

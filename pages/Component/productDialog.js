@@ -511,7 +511,7 @@ export default function ProductDialog({
         <Modal.Body>
           <section className="advt-post bg-gray py-5">
             {isloading && (
-              <div class="spinner-border text-success" role="status">
+              <div className="spinner-border text-success" role="status">
                 <span>Loading...</span>
               </div>
             )}
@@ -555,7 +555,7 @@ export default function ProductDialog({
                         type="number"
                       />
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">Status:</h6>
 
                         <select
@@ -568,15 +568,15 @@ export default function ProductDialog({
                           onChange={(e) => setStatus(e.target.value)}
                         >
                           <option value="">Select Status</option>
-                          {Prodstatus.map((value) => (
-                            <option value={value} key={value}>
+                          {Prodstatus.map((value, i) => (
+                            <option value={value} key={i}>
                               {value}
                             </option>
                           ))}
                         </select>
                       </div>
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">State:</h6>
 
                         <Select
@@ -594,7 +594,7 @@ export default function ProductDialog({
                         />
                       </div>
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">Area:</h6>
 
                         <select
@@ -610,8 +610,8 @@ export default function ProductDialog({
                           onChange={(e) => setArea(e.target.value)}
                         >
                           <option value="">Select Area</option>
-                          {area2.map((category) => (
-                            <option value={category.id}>
+                          {area2.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.cityname}
                             </option>
                           ))}
@@ -636,7 +636,7 @@ export default function ProductDialog({
                       ></textarea>
                     </div>
                     <div className="col-lg-6">
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">
                           Select Ad Category:
                         </h6>
@@ -656,7 +656,7 @@ export default function ProductDialog({
                         />
                       </div>
 
-                      <div class="row">
+                      <div className="row">
                         <h6 className="font-weight-bold pt-4 pb-1">
                           Select Sub Category:
                         </h6>
@@ -674,8 +674,8 @@ export default function ProductDialog({
                           placeholder="Sub Category"
                         >
                           <option value="">Select category</option>
-                          {subcategories.map((category) => (
-                            <option value={category.id}>
+                          {subcategories.map((category, i) => (
+                            <option value={category.id} key={i}>
                               {category.subname}
                             </option>
                           ))}
@@ -688,7 +688,7 @@ export default function ProductDialog({
 
                       <input
                         type="file"
-                        class="form-control-file w-70 bg-white"
+                        className="form-control-file w-70 bg-white"
                         id="file-upload"
                         onChange={changeHandler11}
                         name="file"
@@ -708,7 +708,7 @@ export default function ProductDialog({
 
                       <input
                         type="file"
-                        class="form-control-file w-70 bg-white"
+                        className="form-control-file w-70 bg-white"
                         id="file-upload2"
                         onChange={changeHandler12}
                         name="file2"
@@ -727,7 +727,7 @@ export default function ProductDialog({
                       </h6>
                       <input
                         type="file"
-                        class="form-control-file w-70 bg-white"
+                        className="form-control-file w-70 bg-white"
                         onChange={changeHandler13}
                         id="file-upload3"
                         name="file3"

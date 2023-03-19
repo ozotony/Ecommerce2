@@ -53,23 +53,23 @@ function MyApp({ Component, pageProps }) {
           <link href="/css/style.css" rel="stylesheet"></link>
         </Head>
 
-        <script src="/plugins/jquery/jquery.min.js"></script>
-        <script src="/plugins/bootstrap/popper.min.js"></script>
-        <script src="/plugins/bootstrap/bootstrap.min.js"></script>
-        <script src="/plugins/bootstrap/bootstrap-slider.js"></script>
-        <script src="/plugins/tether/js/tether.min.js"></script>
-        <script src="/plugins/raty/jquery.raty-fa.js"></script>
-        <script src="/plugins/slick/slick.min.js"></script>
-        <script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+        <Script src="/plugins/jquery/jquery.min.js"></Script>
+        <Script src="/plugins/bootstrap/popper.min.js"></Script>
+        <Script src="/plugins/bootstrap/bootstrap.min.js"></Script>
+        <Script src="/plugins/bootstrap/bootstrap-slider.js"></Script>
+        <Script src="/plugins/tether/js/tether.min.js"></Script>
+        <Script src="/plugins/raty/jquery.raty-fa.js"></Script>
+        <Script src="/plugins/slick/slick.min.js"></Script>
+        <Script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></Script>
+        <Script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></Script>
 
-        <script
+        <Script
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"
           defer
-        ></script>
-        <script src="/plugins/google-map/map.js" defer></script>
+        ></Script>
+        <Script src="/plugins/google-map/map.js" defer></Script>
 
-        <script src="/js/script.js"></script>
+        <Script src="/js/script.js"></Script>
         <Headers />
         <CookiesProvider>
           <QueryClientProvider client={queryClient}>

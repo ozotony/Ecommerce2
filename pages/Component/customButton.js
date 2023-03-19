@@ -16,14 +16,14 @@ export default function CustomButton({ description, description2 }) {
     <>
       <button
         type="button"
-        class="btn btn-success"
+        className="btn btn-success"
         hidden={hidden}
         onClick={() => showhide()}
       >
         {description}
       </button>
 
-      <button type="button" class="btn btn-success" hidden={hidden2}>
+      <button type="button" className="btn btn-success" hidden={hidden2}>
         {description2}
       </button>
     </>

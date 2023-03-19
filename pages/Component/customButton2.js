@@ -14,7 +14,7 @@ export default function CustomButton2({ description }) {
     <>
       <button
         type="button"
-        class="btn btn-success"
+        className="btn btn-success"
         hidden={hidden}
         onClick={() => showhide()}
       >
