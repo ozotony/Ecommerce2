@@ -13,27 +13,56 @@ export default async (req, res) => {
   //const taskCreate=await prisma.tasks.create({data:req.body})
   // const taskCreate=await prisma.tasks.create({data:req.body})
   let subcategoryid = req.body.subcategory;
+  let description = req.body.description;
+  let areas = "";
 
-  const areas = await prisma.product.findMany({
-    include: {
-      category: true,
-      subcategory: true,
-      state: true,
-      area: true,
-      productstatus: true,
-      users: {
-        include: {
-          profile: true,
+  if (!description) {
+    areas = await prisma.product.findMany({
+      include: {
+        category: true,
+        subcategory: true,
+        state: true,
+        area: true,
+        productstatus: true,
+        users: {
+          include: {
+            profile: true,
+          },
         },
       },
-    },
 
-    where: {
-      subcategoryid: {
-        equals: parseInt(subcategoryid), // Default mode
+      where: {
+        subcategoryid: {
+          equals: parseInt(subcategoryid), // Default mode
+        },
       },
-    },
-  });
+    });
+  } else {
+    areas = await prisma.product.findMany({
+      include: {
+        category: true,
+        subcategory: true,
+        state: true,
+        area: true,
+        productstatus: true,
+        users: {
+          include: {
+            profile: true,
+          },
+        },
+      },
+
+      where: {
+        subcategoryid: {
+          equals: parseInt(subcategoryid), // Default mode
+        },
+
+        name: {
+          contains: description, // Default mode
+        },
+      },
+    });
+  }
 
   // const state = await prisma.state.findMany()
 

@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function DetailProduct() {
   const router = useRouter();
-  const { prod } = router.query;
+
   const [prod2, setProd2] = useState();
   const [url1, setUrl1] = useState();
   const [url2, setUrl2] = useState();
@@ -19,9 +19,15 @@ export default function DetailProduct() {
   const [isloading, setIsloading] = useState(false);
   const [prod3, setProd3] = useState([]);
   const [show, setShow] = useState(false);
-  console.log("prod");
+
   // console.log(prod);
+  console.log("pquery");
   let pquery = router.query;
+  const description = pquery.description;
+  console.log(pquery.description);
+  let prod = pquery.prod;
+
+  // get target key/value from URLSearchParams object
 
   const showd = (url1, url2, url3) => {
     // setShowDialog(true);
@@ -39,11 +45,14 @@ export default function DetailProduct() {
   useEffect(() => {
     // alert(new Intl.NumberFormat().format(100000));
     // console.log("user")
-    setProd2[prod];
+    // setProd2[prod];
 
     // setvalue(user);
 
-    const body2 = JSON.stringify({ subcategory: prod });
+    const body2 = JSON.stringify({
+      subcategory: prod,
+      description: description,
+    });
 
     const fetchData = async () => {
       try {

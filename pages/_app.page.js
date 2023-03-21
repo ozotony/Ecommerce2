@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <Head>
-          <link href="/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
           <link
             href="/plugins/bootstrap/bootstrap-slider.css"
             rel="stylesheet"
@@ -54,13 +53,18 @@ function MyApp({ Component, pageProps }) {
         </Head>
 
         <Script src="/plugins/jquery/jquery.min.js"></Script>
+        <Script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></Script>
+        <Script src="/plugins/jquery/jquery-nice-select"></Script>
+
+        <link href="/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+        <Script src="/plugins/slick/slick.min.js"></Script>
+
         <Script src="/plugins/bootstrap/popper.min.js"></Script>
         <Script src="/plugins/bootstrap/bootstrap.min.js"></Script>
         <Script src="/plugins/bootstrap/bootstrap-slider.js"></Script>
         <Script src="/plugins/tether/js/tether.min.js"></Script>
         <Script src="/plugins/raty/jquery.raty-fa.js"></Script>
-        <Script src="/plugins/slick/slick.min.js"></Script>
-        <Script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></Script>
         <Script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></Script>
 
         <Script

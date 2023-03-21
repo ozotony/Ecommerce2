@@ -22,6 +22,9 @@ export default function Home() {
   const [category, setCategory] = useState([]);
   const [layout, setLayout] = useState("grid");
   const [products, setProducts] = useState([]);
+  const [subcategory, setSubcategory] = useState([]);
+  const [subcategory2, setSubcategory2] = useState();
+  const [description, setDesription] = useState();
   const [Electronicproducts, setElectronicproducts] = useState([]);
   const [Restaurantsproducts, setRestaurantsproducts] = useState([]);
   const [RealEstateproducts, setRealEstateproducts] = useState([]);
@@ -279,6 +282,29 @@ export default function Home() {
     setValue(user);
     //setLoadings(true);
 
+    const fetchData2 = async () => {
+      try {
+        // const res = await fetch("/api/product/getProduct3", {
+        const res = await fetch("/api/category/getsubcategory3", {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+            Accept: "application/json",
+          },
+          // body: body2,
+        });
+
+        const data = await res.json();
+
+        setSubcategory(data);
+
+        // setElectronicproducts(elecprod);
+        //console.log(elecprod);
+        //  setProducts(data);
+        //  initFilters1();
+      } catch (e) {}
+    };
+
     const fetchData3 = async () => {
       //  const body2 = JSON.stringify({
       //    category: groupcategory,
@@ -311,6 +337,7 @@ export default function Home() {
     };
 
     // fetchData();
+    fetchData2();
     fetchData3();
     // }
   }, []);
@@ -326,6 +353,14 @@ export default function Home() {
     console.log(obj.user.email);
   }
   const user2 = false;
+  let Search = () => {
+    //  alert(subcategory2);
+    router.push({
+      pathname: `/detail3/${subcategory2}`,
+      //,
+      query: { subcategory: subcategory2, description: description },
+    });
+  };
 
   return (
     <>
@@ -353,22 +388,33 @@ export default function Home() {
                             <input
                               type="text"
                               className="form-control my-2 my-lg-1"
+                              onChange={(e) => setDesription(e.target.value)}
                               id="inputtext4"
                               placeholder="What are you looking for"
                             />
                           </div>
                           <div className="form-group col-lg-3 col-md-6">
-                            <select className="w-100 form-control mt-lg-1 mt-md-2">
-                              <option>Category</option>
-                              <option value={1}>Top rated</option>
-                              <option value={2}>Lowest Price</option>
-                              <option value={4}>Highest Price</option>
+                            <select
+                              name="subcategory"
+                              value={subcategory2}
+                              onChange={(e) => setSubcategory2(e.target.value)}
+                              as="select"
+                              className="w-100 form-control mt-lg-1 mt-md-2"
+                              placeholder="Sub Category"
+                            >
+                              <option value="">Select category</option>
+                              {subcategory.map((category, i) => (
+                                <option value={category.id} key={i}>
+                                  {category.subname}
+                                </option>
+                              ))}
                             </select>
                           </div>
 
                           <div className="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
                             <button
-                              type="submit"
+                              type="button"
+                              onClick={Search}
                               className="btn btn-primary active w-100"
                             >
                               Search Now
