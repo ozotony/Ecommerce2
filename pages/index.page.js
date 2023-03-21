@@ -14,6 +14,7 @@ import { Button } from "primereact/button";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import { useInView } from "react-intersection-observer";
+import Swal from "sweetalert2";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -355,6 +356,18 @@ export default function Home() {
   const user2 = false;
   let Search = () => {
     //  alert(subcategory2);
+
+    if (!subcategory2 && !description) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Must Enter Search Criteria ",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      return;
+    }
     router.push({
       pathname: `/detail3/${subcategory2}`,
       //,
