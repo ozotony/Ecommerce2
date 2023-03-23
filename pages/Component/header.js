@@ -48,7 +48,10 @@ export default function Headers() {
                       </Link>
                     </li>
 
-                    <li className="nav-item dropdown dropdown-slide @@dashboard">
+                    <li
+                      className="nav-item dropdown dropdown-slide @@dashboard"
+                      hidden
+                    >
                       <a
                         className="nav-link dropdown-toggle"
                         data-toggle="dropdown"
@@ -131,98 +134,39 @@ export default function Headers() {
                         </li>
                       </ul>
                     </li>
-                    <li className="nav-item dropdown dropdown-slide @@pages">
-                      <a
-                        className="nav-link dropdown-toggle"
-                        href="#"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Pages{" "}
-                        <span>
-                          <i className="fa fa-angle-down" />
-                        </span>
-                      </a>
-                      {/* Dropdown list */}
-                      <ul className="dropdown-menu">
-                        <li>
-                          <a
-                            className="dropdown-item @@about"
-                            href="about-us.html"
-                          >
-                            About Us
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@contact"
-                            href="contact-us.html"
-                          >
-                            Contact Us
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@profile"
-                            href="user-profile.html"
-                          >
-                            User Profile
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item @@404" href="404.html">
-                            404 Page
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@package"
-                            href="package.html"
-                          >
-                            Package
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@singlePage"
-                            href="single.html"
-                          >
-                            Single Page
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@store"
-                            href="store.html"
-                          >
-                            Store Single
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item @@blog" href="blog.html">
-                            Blog
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@singleBlog"
-                            href="single-blog.html"
-                          >
-                            Blog Details
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className="dropdown-item @@terms"
-                            href="terms-condition.html"
-                          >
-                            Terms &amp; Conditions
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="nav-item dropdown dropdown-slide @@listing">
+                    {value && (
+                      <li className="nav-item dropdown dropdown-slide @@pages">
+                        <a
+                          className="nav-link dropdown-toggle"
+                          href="#"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          GetProduct{" "}
+                          <span>
+                            <i className="fa fa-angle-down" />
+                          </span>
+                        </a>
+                        {/* Dropdown list */}
+                        <ul className="dropdown-menu">
+                          <li>
+                            <Link
+                              href="/getProduct"
+                              className={
+                                router.pathname == "/getProduct" ? "active" : ""
+                              }
+                            >
+                              <a className="nav-link">View Product</a>
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    )}
+                    <li
+                      className="nav-item dropdown dropdown-slide @@listing"
+                      hidden
+                    >
                       <a
                         className="nav-link dropdown-toggle"
                         href="#!"
