@@ -251,6 +251,7 @@ export default function Product2({
             >
               Previous
             </button>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
             <button
               type="button"
               onClick={handleSubmission}
