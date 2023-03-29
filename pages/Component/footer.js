@@ -8,7 +8,7 @@ export default function Footers() {
             {/* About */}
             <div className="block about">
               {/* footer logo */}
-              <img src="/images/logo-footer.png" alt="logo" />
+              <img src="/images/logo5.png" alt="logo" />
               {/* description */}
               <p className="alt-color">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

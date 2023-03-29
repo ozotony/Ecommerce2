@@ -39,12 +39,36 @@ export default function Headers() {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav ml-auto main-nav ">
-                    <li className="nav-item active">
+                    <li
+                      className={`nav-item ${
+                        router.pathname == "/" ? "active" : ""
+                      } `}
+                    >
                       <Link
                         href="/"
                         className={router.pathname == "/" ? "active" : ""}
                       >
                         <a className="nav-link">Home</a>
+                      </Link>
+                    </li>
+
+                    <li
+                      className={`nav-item ${
+                        router.pathname == "/About" ? "active" : ""
+                      } `}
+                    >
+                      <Link href="/About">
+                        <a className="nav-link">About</a>
+                      </Link>
+                    </li>
+
+                    <li
+                      className={`nav-item ${
+                        router.pathname == "/Blog" ? "active" : ""
+                      } `}
+                    >
+                      <Link href="/Blog">
+                        <a className="nav-link">Blog</a>
                       </Link>
                     </li>
 
@@ -230,7 +254,11 @@ export default function Headers() {
                   </ul>
                   <ul className="navbar-nav ml-auto mt-10">
                     {!value && (
-                      <li className="nav-item">
+                      <li
+                        className={`nav-item ${
+                          router.pathname == "/Login" ? "active" : ""
+                        } `}
+                      >
                         <Link href="/Login">
                           <a className="nav-link login-button">Login</a>
                         </Link>
@@ -246,7 +274,11 @@ export default function Headers() {
                     )}
 
                     {value && (
-                      <li className="nav-item">
+                      <li
+                        className={`nav-item ${
+                          router.pathname == "/AddProduct" ? "active" : ""
+                        } `}
+                      >
                         <Link href="/AddProduct">
                           <a className="nav-link text-white add-button">
                             {" "}
