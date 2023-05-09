@@ -55,7 +55,8 @@ export default function AddProduct(props) {
   const [extension3, setextension3] = useState();
   const [value, setValue] = useState();
   const [loadings, setLoadings] = useState(false);
-  let s3path = "https://s3.amazonaws.com/ozotony/";
+  //let s3path = "https://s3.amazonaws.com/ozotony/";
+  let s3path = "https://s3.amazonaws.com/ozotony2/";
 
   async function upload(file, ext, filename) {
     const data = await (await fetch(`/api/Upload?file=${filename}`)).json();
